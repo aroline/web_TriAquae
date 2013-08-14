@@ -3,7 +3,7 @@ web_TriAquae
 
 This is web TriAquae.
 
-confige steps:
+config steps:
 
 step1:
 
@@ -22,7 +22,7 @@ open mysql, add group name into "hosts_group", you can use batach_add_server.py 
 run backend/muti_ping3.py it will put the results of ping into "hosts_serverstatus" automatically
 
 step5:
-run backend/collect_hardware_information.py and write_mysql.py, put the assets information into "hosts_devinfo"
+run backend/collect_hardware_information.py and write_mysql.py, it will put the assets' information into "hosts_devinfo"
 
 step6:
 manage.py runserver ip:port
