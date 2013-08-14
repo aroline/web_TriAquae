@@ -1,9 +1,0 @@
-2013_06_29 21:51:56   192.168.2.223  alex Command:'df' Success 	Track_mark:14  
-Filesystem     1K-blocks    Used Available Use% Mounted on
-/dev/sda1       19734196 4750236  13981516  26% /
-udev              442896       4    442892   1% /dev
-tmpfs             180256     780    179476   1% /run
-none                5120       0      5120   0% /run/lock
-none              450636      80    450556   1% /run/shm
-none              102400      44    102356   1% /run/user
-     
