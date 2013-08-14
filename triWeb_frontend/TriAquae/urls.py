@@ -1,15 +1,14 @@
 #from django.conf.urls import patterns, include, url
 from django.conf.urls import *
 from TriAquae.views import TriAquae
-from TriAquae.views import CpuUsage
-from TriAquae.views import ServiceStatus
+#from TriAquae.views import CpuUsage
+#from TriAquae.views import ServiceStatus
 #from TriAquae.datas import TriAquaeData
-from TriAquae.views import TriAquae, Command_Execution, File_Transfer, Server_Configuration, Job_Schedule, Assets_Management
-from views import GetServers
-from host.views import runCmd, cmd_result,AllUsers,AllCommands,stopExecution,getFailedLists,loadFileTransferPage
+#from TriAquae.views import TriAquae, Command_Execution, File_Transfer, Server_Configuration, Job_Schedule, Assets_Management,GetServers
+#from hosts.views import runCmd, cmd_result,AllUsers,AllCommands,stopExecution,getFailedLists,file_transfer,getFileLists,getDangerousCmd
+from hosts.views import *
 
-
-# Uncomment the next two lines to enable the admin:
+## Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
@@ -20,24 +19,33 @@ urlpatterns = patterns('',
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$',TriAquae),
-    url(r'^cpuusage/', CpuUsage),
-    url(r'^status/', ServiceStatus),
-    url(r'^command_execution$',Command_Execution),
-    url(r'^file_transfer$',File_Transfer),
-    url(r'^server_configuration$',Server_Configuration),
-    url(r'^job_schedule$',Job_Schedule),
-    #url('^assets_management$',Assets_Management),
-    url(r'^host/',include('TriAquae.host.urls',namespace='host')),
-    url(r'^GetServers$',GetServers),
-    url(r'^runCmd/$',runCmd),
-    url(r'^cmd_result/$',cmd_result),
-    url(r'^AllCommands/$',AllCommands),
-    url(r'^AllUsers/$',AllUsers),
-    url(r'^stopExecution/$',stopExecution),
-    url(r'^getFailedLists/$',getFailedLists),
-    url(r'^loadFileTransferPage/$',loadFileTransferPage),
+
+    #url(r'^admin/hosts/',include('TriAquae.hosts.admin_urls')),
+    #url(r'^hosts/$',include('TriAquae.hosts.urls',namespace='hosts')),
+    #url(r'^hosts/$',include('TriAquae.hosts.urls')),
+
+    # start by zp
+    url(r'^assets_management/$',assets),
+    url(r'^assets_management/(?P<id>\d+)/$', assets_detail, name='assets_detail'),
+    url(r'^assets_management/diff$',assets_diff),
+    url(r'^server_status/$',status),
+    url(r'^server_status/(?P<hostname>\S+)/$',status_detail, name='status_detail'),
+    url(r'^command_execution$',command_execution),
+    url(r'^file_transfer$',file_transfer),
+    # end by zp
+
+    #start by tangjing
+    (r'^GetServers$',GetServers),
+    (r'^runCmd/$',runCmd),
+    (r'^cmd_result/$',cmd_result),
+    (r'^AllCommands/$',AllCommands),
+    (r'^AllUsers/$',AllUsers),
+    (r'^stopExecution/$',stopExecution),
+    (r'^getFailedLists/$',getFailedLists),
+    (r'^transferFile/$',transfer_file),
+    (r'^getFileLists/$',getFileLists),
+    (r'^getDangerousCmd/$',getDangerousCmd),
+    #(r'^loadFileTransferPage/$',loadFileTransferPage),
+    #end by tangjing
 )

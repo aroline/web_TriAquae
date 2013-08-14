@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Asia/Shanghai'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -65,6 +65,7 @@ MEDIA_URL = ''
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
 STATIC_ROOT = os.path.join(SITE_ROOT,'static')
+#STATIC_ROOT = os.path.join(SITE_ROOT,'html')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -80,7 +81,6 @@ STATICFILES_DIRS = (
     ("img", os.path.join(STATIC_ROOT, 'img')),
     ("liger", os.path.join(STATIC_ROOT, 'liger')),
     ("mulselect", os.path.join(STATIC_ROOT, 'mulSelector')),
-
 )
 
 # List of finder classes that know how to find static files in
@@ -104,7 +104,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
@@ -120,8 +120,10 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(SITE_ROOT,'code'),
-    os.path.join(SITE_ROOT,'host'),
+    #os.path.join(SITE_ROOT,'code'),
+    #os.path.join(SITE_ROOT,'hosts'),
+    os.path.join(SITE_ROOT,'templates'),
+    os.path.join(SITE_ROOT,'html'),
 )
 
 INSTALLED_APPS = (
@@ -135,7 +137,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'TriAquae.host',
+    'TriAquae.hosts',
+    #'hosts',
+     #"books",
 )
 
 # A sample logging configuration. The only tangible logging

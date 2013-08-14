@@ -4338,4 +4338,38 @@
 	}
 
 
+    # add by zp 
 
+	.assets-detail-body table {
+		border-top: none;
+		border-bottom: none;
+	}
+	.invoice, .assets-detail-body table thead tr {
+		background: #fff;
+	}
+	.assets-detail-body table thead tr {
+		border-top: none;
+	}
+	.assets-detail-body table tr, .assets-detail-body table th {
+		line-height: 18px;
+		text-align: left;
+		vertical-align: top;
+		border-top: 1px solid #DDD;
+		font-size: 12px;
+	}
+	.assets-detail-body table td, .assets-detail-body table th {
+		//padding: 10px 32px;
+	}
+	.assets-detail-body table th.item {
+		width: 18%;
+	}
+	.assets-detail-body table th.desc {
+		width: 38%;
+	}
+	.assets-detail-body table th.price {
+		width: 15%;
+	}
+	.assets-detail-body table th.qtn {
+		width: 15%;
+	}
+	.assets-detail-body table th.sub {

@@ -1,0 +1,247 @@
+{% extends "fmbase.html" %}
+{% block page-content %}
+<div id="page-content">
+    <!-- page header -->
+    <h1 id="page-header">Server Status</h1>
+
+    <div class="fluid-container">
+        
+        <!-- widget grid -->
+        <section id="widget-grid" class="">
+
+            <!-- row-fluid -->
+
+            <div class="row-fluid">
+
+                <article class="span12">
+
+                    <!-- new widget -->
+                    <div class="jarviswidget" id="widget-id-2">
+                        <header>
+                            <h2>Server Status</h2>
+                        </header>
+
+                        <!-- widget div-->
+                        <div>
+                            <!-- widget edit box -->
+                            <div class="jarviswidget-editbox">
+                                <div>
+                                    <label>Title:</label>
+                                    <input type="text" />
+                                </div>
+                                <div>
+                                    <label>Styles:</label>
+                                    <span data-widget-setstyle="purple" class="purple-btn"></span>
+                                    <span data-widget-setstyle="navyblue" class="navyblue-btn"></span>
+                                    <span data-widget-setstyle="green" class="green-btn"></span>
+                                    <span data-widget-setstyle="yellow" class="yellow-btn"></span>
+                                    <span data-widget-setstyle="orange" class="orange-btn"></span>
+                                    <span data-widget-setstyle="pink" class="pink-btn"></span>
+                                    <span data-widget-setstyle="red" class="red-btn"></span>
+                                    <span data-widget-setstyle="darkgrey" class="darkgrey-btn"></span>
+                                    <span data-widget-setstyle="black" class="black-btn"></span>
+                                </div>
+                            </div>
+                            <!-- end widget edit box -->
+
+                            <!-- content -->
+                            <!--
+                            <div class="inner-spacer chat-widget widget-content-padding">
+                            -->
+                            <div class="inner-spacer widget-content-padding">
+
+                                <!-- tabs -->
+                                <!--
+                                <ul id="myTab" class="nav nav-tabs chat-tabs">
+                                -->
+                                <ul id="myTab" class="nav nav-tabs default-tabs">
+                                    <li class="active">
+                                        <a href="#s1" data-toggle="tab">Overview</a>
+                                    </li>
+                                    <li>
+                                        <a href="#s2" data-toggle="tab">Performance</a>
+                                    </li>
+                                </ul>
+                                <!-- end tabs -->
+
+                                <div id="myTabContent" class="tab-content"> 
+                                    <div class="tab-pane fade in active" id="s1"> 
+
+                                        <!-- article -->
+                                        <article class="span6">
+                                            <ul>
+                                                <li>Host Name: {{ assets.System_Hostname }}</li>
+                                                <li>System: {{ assets.System_Version}}</li>
+                                                <li>Memory: {{ assets.Physical_Memory }}</li>
+                                            </ul>
+                                        </article>
+                                        <article class="span6">
+                                            <div class="inner-spacer">
+                                            <!-- content goes here -->
+                                                 <table class="table table-bordered text-left table-hover" id="just-table">
+                                                     <thead>
+                                                         <tr>
+                                                             <th>#</th>
+                                                             <th>Item</th>
+                                                             <th>Value</th>
+                                                         </tr>
+                                                     </thead>
+                                                     <tbody>
+                                                         <tr>
+                                                             <td>1</td>
+                                                             <td>host_status</td>
+                                                             <td>{{ host.host_status }}</td>
+                                                         </tr>
+                                                         <tr>
+                                                             <td>2</td>
+                                                             <td>ping_status</td>
+                                                             <td>{{ host.ping_status }}</td>
+                                                         </tr>
+                                                         <tr>
+                                                             <td>3</td>
+                                                             <td>last_check</td>
+                                                             <td>{{ host.last_check }}</td>
+                                                         </tr>
+                                                         <tr>
+                                                             <td>4</td>
+                                                             <td>attemp_count</td>
+                                                             <td>{{ host.attemp_count }}</td>
+                                                         </tr>
+                                                         <tr>
+                                                             <td>5</td>
+                                                             <td>breakdown_count</td>
+                                                             <td>{{ host.breakdown_count }}</td>
+                                                         </tr>
+                                                         <tr>
+                                                             <td>6</td>
+                                                             <td>up_count</td>
+                                                             <td>{{ host.up_count}}</td>
+                                                         </tr>
+                                                         <tr>
+                                                             <td>7</td>
+                                                             <td>availablility</td>
+                                                             <td>{{ host.availability }}</td>
+                                                         </tr>
+                                                     </tbody>
+                                                 </table>
+                                             </div>
+                                             <!-- end content-->
+
+                                        </article>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="s2"> 
+
+                                         <!-- row-fluid -->
+
+                                         <div class="row-fluid">
+
+
+                                            <article class="span6">
+
+                                            <!-- new widget -->
+                                            <div class="jarviswidget" id="widget-id-2">
+                                                <header>
+                                                    <h2>Cpu Usage</h2>
+                                                </header>
+                                                <div>
+
+                                                    <div class="jarviswidget-editbox">
+                                                        <div>
+                                                            <label>Title:</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div>
+                                                            <label>Styles:</label>
+                                                            <span data-widget-setstyle="purple" class="purple-btn"></span>
+                                                            <span data-widget-setstyle="navyblue" class="navyblue-btn"></span>
+                                                            <span data-widget-setstyle="green" class="green-btn"></span>
+                                                            <span data-widget-setstyle="yellow" class="yellow-btn"></span>
+                                                            <span data-widget-setstyle="orange" class="orange-btn"></span>
+                                                            <span data-widget-setstyle="pink" class="pink-btn"></span>
+                                                            <span data-widget-setstyle="red" class="red-btn"></span>
+                                                            <span data-widget-setstyle="darkgrey" class="darkgrey-btn"></span>
+                                                            <span data-widget-setstyle="black" class="black-btn"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="inner-spacer">
+                                                    <!-- content goes here -->
+
+                                                        <!-- sin chart -->
+                                                        <div id="updating-chart1" class="chart" style="height:auto">
+                                                            <img src="/static/img/10.2.254.222_CpuUsage_now-1h.png" alt="cpu" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <!-- end widget -->
+    
+                                            </article>
+
+                                            <article class="span6">
+
+                                            <!-- new widget -->
+                                            <div class="jarviswidget" id="widget-id-0">
+                                                <header>
+                                                    <h2>Memory</h2>
+                                                </header>
+                                                <div>
+
+                                                    <div class="jarviswidget-editbox">
+                                                        <div>
+                                                            <label>Title:</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div>
+                                                            <label>Styles:</label>
+                                                            <span data-widget-setstyle="purple" class="purple-btn"></span>
+                                                            <span data-widget-setstyle="navyblue" class="navyblue-btn"></span>
+                                                            <span data-widget-setstyle="green" class="green-btn"></span>
+                                                            <span data-widget-setstyle="yellow" class="yellow-btn"></span>
+                                                            <span data-widget-setstyle="orange" class="orange-btn"></span>
+                                                            <span data-widget-setstyle="pink" class="pink-btn"></span>
+                                                            <span data-widget-setstyle="red" class="red-btn"></span>
+                                                            <span data-widget-setstyle="darkgrey" class="darkgrey-btn"></span>
+                                                            <span data-widget-setstyle="black" class="black-btn"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="inner-spacer">
+                                                    <!-- content goes here -->
+
+                                                        <!-- sin chart -->
+                                                        <div id="updating-chart2" class="chart" style="height:auto">
+                                                            <img src="10.2.254.222_CpuUsage_now-1h.png" alt="cpu" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <!-- end widget -->
+                                            </article>
+                                        </div>
+                                        <!-- end row-fluid -->
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- end content -->
+                        </div>
+                        <!-- end widget div -->
+
+                    </div>
+                    <!-- end widget grid -->
+                </article>
+            </div>
+            <!-- end row-fluid -->
+
+        </section>
+        <!-- end widget grid -->
+
+    </div>      
+</div>
+<!-- end main content -->
+{% endblock %}

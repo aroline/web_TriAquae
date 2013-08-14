@@ -1,0 +1,188 @@
+{% extends "fmbase.html" %}
+{% block page-content %}
+<link href="/static/liger/css/ligerui-all.css" rel="stylesheet" type="text/css" />
+<script src="/static/liger/js/base.js" type="text/javascript"></script>
+<script src="/static/liger/js/ligerTree.js" type="text/javascript"></script>
+<script src="/static/liger/js/ligerDrag.js" type="text/javascript"></script>
+<script src="/static/liger/js/ligerCustom.js" type="text/javascript"></script>
+
+
+
+ <style>
+.ui-progressbar {
+	position: relative;
+}
+.progress-label {
+	position: absolute;
+	left: 50%;
+	top: 4px;
+	font-weight: bold;
+	text-shadow: 1px 1px 0 #fff;
+}
+
+#execution_ret {
+	display:block;
+}
+#execution_ret li{
+	list-style:none;
+	display:inline;
+}
+#execution_failed{
+	display:none;
+	
+}
+h4{
+	padding:5px 0 5px 0;
+
+}
+</style>
+<script>
+</script>
+<div id="page-content">
+	<!-- page header -->
+	<h1 id="page-header">Server Management > File Transfer </h1>
+	<div class="fluid-container">	
+		<!-- widget grid -->
+		<section id="widget-grid" class="">
+		
+			<!-- row-fluid -->
+			<div class="row-fluid">
+				<!-- article -->	
+				<article class="span12">
+					<!-- new widget -->
+					<div class="jarviswidget" id="widget-id-3">
+					    <header>
+			                <h2>Run Commands</h2>                           
+					    </header>
+					    <!-- wrap div -->
+					    <div>
+					        <div class="jarviswidget-editbox">
+					            <div>
+					                <label>Title:</label>
+					                <input type="text" />
+					            </div>
+					            <div>
+					                <label>Styles:</label>
+					                <span data-widget-setstyle="purple" class="purple-btn"></span>
+					                <span data-widget-setstyle="navyblue" class="navyblue-btn"></span>
+					                <span data-widget-setstyle="green" class="green-btn"></span>
+					                <span data-widget-setstyle="yellow" class="yellow-btn"></span>
+					                <span data-widget-setstyle="orange" class="orange-btn"></span>
+					                <span data-widget-setstyle="pink" class="pink-btn"></span>
+					                <span data-widget-setstyle="red" class="red-btn"></span>
+					                <span data-widget-setstyle="darkgrey" class="darkgrey-btn"></span>
+					                <span data-widget-setstyle="black" class="black-btn"></span>
+					            </div>
+					        </div>
+					        <div class="inner-spacer"> 
+					        <!-- content goes here -->
+								<form class="form-horizontal themed" action="test.py">
+									<fieldset>
+<div class="control-group">
+                                                                                        <span>Choose Action:</span>
+                                                                                         <select id="invokeAction" >
+                                                                                                <option>SendFile</ooption>
+                                                                                                <option>GetFile</option>
+                                                                                          </select>
+                                                                                        <span style="margin-left:10px">Choose User:</span>
+                                                                                        <select id="invokeUser" >
+                                                                                        </select>
+                                                                                </div>
+		
+										<div class="control-group">
+											<div id="message"></div>
+											<div style="height: 300px;  float: left; border: 1px solid #ccc; overflow: auto;">
+												<ul id="tree1"></ul>
+											</div>
+											
+<div id="fileTransferDiv" style="position:relative;float:right;width:60%;height:100%;border:1px solid #ccc">
+											    <div style="position: relative;float:left;min-width: 20px;display: inline-block;width: 45%;padding:5px 0 0 6px;height:280px;">
+													<div style="border:1px solid rgb(204,204,204);border-bottom-style:none;">The File Lists:</div>
+													<div  style="border:1px solid rgb(204,204,204);border-bottom-style:none;">Filter:<input type="text" id="filterFiles" style="margin:2px 0 2px 0;width:80%;height:18px;"></div>
+													<select size="10"  multiple="MULTIPLE" id="fileLists" style="display:block;width:100%;height: 80%;border: 1px solid #ccc;overflow:auto">
+													</select>
+													<br />
+													<input type="button" value="Choose All" id="chooseall" style="margin-left:30%">
+												</div>
+											<div style="position: relative;width: 5%;display: inline-block;margin:30% 0 30% 1%">
+												<input type="button" id="movetoright" value=">>" />
+												<input type="button" id="movetoleft" value="<<" />
+											</div>
+											<div style="position: relative;float:right;min-width: 20px;display: inline-block;width: 45%;padding:5px 5px 0 0;height:280px;">
+												<div style="border:1px solid rgb(204,204,204);border-bottom-style:none">Selected Files:</div>
+												<select size="12" id="selectedFiles" style="display: block;width:100%;height: 90%;border: 1px solid #ccc;margin:0px 10px 0 0">
+												</select>
+												<br />
+												<input type="button" value="Remove All" id="removeall" style="margin-left:30%">
+											</div>
+											<h4 style="padding:0 5px 0 10px;">Remote Path: <input type="text" id="remotepath" style ="width:60%;margin-left:5px" value="/tmp"/></h4>
+										</div>
+										</div>									
+										<div class="control-group">
+											<button class="btn" id="transferFileBtn" style="margin-left:80%;"><a href="javascript:void(0)">    run    </a></button>
+				<button id="stopprocess" class="btn" disabled=true style="float:right"><a href="javascript:void(0)">stop Immediately</a></button>
+
+										</div>
+									</fieldset>
+								</form>
+						    </div>
+						    <!-- end content-->
+					    </div>
+					    <!-- end wrap div -->
+					</div>
+					<!-- end widget -->
+					<div class="jarviswidget" id="widget-id-3">
+					    <header>
+							<h2>Execution Results</h2>                           
+					    </header>
+					    <!-- wrap div -->
+					    <div>  
+					        <div class="jarviswidget-editbox">
+					            <div>
+					                <label>Title:</label>
+					                <input type="text" />
+					            </div>
+					            <div>
+					                <label>Styles:</label>
+					                <span data-widget-setstyle="purple" class="purple-btn"></span>
+					                <span data-widget-setstyle="navyblue" class="navyblue-btn"></span>
+					                <span data-widget-setstyle="green" class="green-btn"></span>
+					                <span data-widget-setstyle="yellow" class="yellow-btn"></span>
+					                <span data-widget-setstyle="orange" class="orange-btn"></span>
+					                <span data-widget-setstyle="pink" class="pink-btn"></span>
+					                <span data-widget-setstyle="red" class="red-btn"></span>
+					                <span data-widget-setstyle="darkgrey" class="darkgrey-btn"></span>
+					                <span data-widget-setstyle="black" class="black-btn"></span>
+					            </div>
+					        </div>
+							<div id="progressbar" style="display:none"><div class="progress-label">Loading...</div></div>
+							  <div style="border:1px solid red">
+                                                                <a href="javascript:void(0)" > TotalTasks: <span id="totalnum">0</span></a>
+                                                                <a href="javascript:void(0)">Number of Success:<span id="successnum">0</span></a>
+                                                                <a href="javascript:void(0)">Number of Failure:<span id="failednum">0</span></a>
+
+                                                        </div>
+							<div id="execution_process" style="height:100%;border:1px solid red;overflow:auto"></div>
+							<div id="execution_failed"><h4>Failed IP Lists</h4></div>
+					    </div>
+					    <!-- end wrap div -->
+					</div>
+					<!-- end widget -->
+				</article>
+				<!-- end article-->
+			</div>
+			<!-- end row-fluid -->
+		</section>
+		<!-- end widget grid -->
+	</div>		
+	<div id="dialog-confirm" style="display:none" title="Execute command">
+	<p>
+		<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
+		<span id="dialog_body"><span>
+	</p>
+	</div>
+</div>
+<!-- end main content -->
+<script src="/static/js/include/command_exec_core.js" type="text/javascript"></script>
+<script src="/static/js/include/file_transfer.js" type="text/javascript"></script>
+{% endblock %}

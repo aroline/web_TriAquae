@@ -1,0 +1,200 @@
+{% extends "fmbase.html" %}
+{% block page-content %}
+<div id="page-content">
+    <!-- page header -->
+    <h1 id="page-header">Assets Management</h1>
+
+    <div class="fluid-container">
+        
+        <!-- start icons -->
+        <div id="start">
+            <ul>
+                <!--
+                <li>
+                    <label>new </label>
+                    <a href="javascript:void(0)" title="">
+                    <a href="/admin/host/host/add" title="">
+                        <img src="/static/img/start-icons/add-user.png" alt="">
+                        <span>Add New Host</span>
+                    </a>
+                </li>
+                -->
+                <li>
+                    <label>{{ auto_check }} </label>
+                    <a href="/assets_management/diff" title="">
+                        <img src="/static/img/start-icons/upgrade.png" alt="">
+                        <span>Auto Discover</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- end start icons -->
+        
+        <!-- widget grid -->
+        <section id="widget-grid" class="">
+            
+            <!-- row-fluid -->
+            <div class="row-fluid">
+                <article class="span12">
+                    <!-- new widget -->
+                    <div class="jarviswidget" id="widget-id-1">
+                        <header>
+                            <h2>Assets Management</h2>
+                        </header>
+                        <!-- wrap div -->
+                        <div>
+                            <div class="jarviswidget-editbox">
+                                <div>
+                                    <label>Title:</label>
+                                    <input type="text" />
+                                </div>
+                                <div>
+                                    <label>Styles:</label>
+                                    <span data-widget-setstyle="purple" class="purple-btn"></span>
+                                    <span data-widget-setstyle="navyblue" class="navyblue-btn"></span>
+                                    <span data-widget-setstyle="green" class="green-btn"></span>
+                                    <span data-widget-setstyle="yellow" class="yellow-btn"></span>
+                                    <span data-widget-setstyle="orange" class="orange-btn"></span>
+                                    <span data-widget-setstyle="pink" class="pink-btn"></span>
+                                    <span data-widget-setstyle="red" class="red-btn"></span>
+                                    <span data-widget-setstyle="darkgrey" class="darkgrey-btn"></span>
+                                    <span data-widget-setstyle="black" class="black-btn"></span>
+                                 </div>
+                             </div>
+
+                             <div class="inner-spacer" style="overflow:auto;">
+                             <!-- content goes here -->
+
+                                <table class="table table-striped table-bordered responsive" id="assets-col-filter">
+                                    <thead>
+                                       <tr>
+                                           <td>System_Hostname<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>System_Ip<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Device_Type<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Device_Model<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>System_Kernel<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Ethernet_Interface<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Memory_Slots_Number<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Memory_Slots_All<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Physical_Memory<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Logical_Cpu_Cores<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Physical_Cpu_Cores<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Physical_Cpu_Model<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Physical_Cpu_MHz<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>System_Version<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Hard_Disk<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>System_Mac<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>System_Hostid<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>System_Swap<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Device_Sn<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Asset_Number<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Note1<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Note2<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Note3<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <td>Check_Time<span onclick="show_div()" style="cursor:default;"><img src="/static/img/click.png"></span></td>
+                                           <!--
+                                           <td>System_Hostname<span onclick="show_div()" style="cursor:default;"> x </span></td>
+                                           <td>System_Ip<span onclick="show_div()" style="cursor:default;"> x </span></td>
+                                           <td>Device_Type</td>
+                                           <td>Device_Model</td>
+                                           <td>System_Kernel</td>
+                                           <td>Ethernet_Interface</td>
+                                           <td>Memory_Slots_Number</td>
+                                           <td>Memory_Slots_All</td>
+                                           <td>Physical_Memory</td>
+                                           <td>Logical_Cpu_Cores</td>
+                                           <td>Physical_Cpu_Cores</td>
+                                           <td>Physical_Cpu_Model</td>
+                                           <td>Physical_Cpu_MHz</td>
+                                           <td>System_Version</td>
+                                           <td>Hard_Disk</td>
+                                           <td>System_Mac</td>
+                                           <td>System_Hostid</td>
+                                           <td>System_Swap</td>
+                                           <td>Device_Sn</td>
+                                           <td>Asset_Number</td>
+                                           <td>Note1</td>
+                                           <td>Note2</td>
+                                           <td>Note3</td>
+                                           <td>Check_Time</td>
+                                           -->
+                                       </tr>
+                                       <tr class="second">
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                           <td><input type="text" name="search" value="Filter" class="search_init"></td>
+                                       </tr>
+                                   </thead>
+                                   <tbody> 
+                                       {% for host in latest_host_list %}
+                                       <tr class="odd gradeX"> 
+                                           <td><a href="{% url 'assets_detail' host.id %}">{{ host.System_Hostname}}</a></td>
+                                           <td><a href="{% url 'assets_detail' host.id %}">{{ host.System_Ip}}</a></td>
+                                           <td>{{ host.System_Hostname}}</td>
+                                           <td>{{ host.System_Ip}}</td>
+                                           <td>{{ host.Device_Type }}</td>
+                                           <td>{{ host.Device_Model }}</td> 
+                                           <td>{{ host.System_Kernel }}</td> 
+                                           <td class="center">{{ host.Ethernet_Interface }}</td> 
+                                           <td>{{ host.Memory_Slots_Number }}</td> 
+                                           <td>{{ host.Memory_Slots_All }}</td> 
+                                           <td>{{ host.Physical_Memory }}</td>
+                                           <td>{{ host.Logical_Cpu_Cores }}</td> 
+                                           <td class="center">{{ host.Physical_Cpu_Cores }}</td> 
+                                           <td class="center">{{ host.Physical_Cpu_Model }}</td> 
+                                           <td class="center">{{ host.Physical_Cpu_MHz }}</td> 
+                                           <td class="center">{{ host.System_Version}}</td> 
+                                           <td class="center">{{ host.Hard_Disk }}</td> 
+                                           <td class="center">{{ host.System_Mac }}</td> 
+                                           <td class="center">{{ host.System_Hostid }}</td> 
+                                           <td class="center">{{ host.System_Swap }}</td> 
+                                           <td class="center">{{ host.Device_Sn }}</td> 
+                                           <td class="center">{{ host.Asset_Number }}</td> 
+                                           <td class="center">{{ host.Note1}}</td> 
+                                           <td class="center">{{ host.Note2}}</td> 
+                                           <td class="center">{{ host.Note3}}</td> 
+                                           <td class="center">{{ host.Check_Time}}</td> 
+                                       </tr> 
+                                       {% endfor %}
+                                    </tbody>
+                                </table>
+                                </div>
+
+                                <div id="colsDiv" style="background-color:#eeeeee; display:none;">
+                                </div>
+                             <!-- end content-->
+
+                        </div>
+                        <!-- end wrap div -->
+                    </div>
+                    <!-- end widget -->
+                </article>
+            </div>
+            <!-- end row-fluid -->
+        </section>
+        <!-- end widget grid -->
+    </div>      
+</div>
+<!-- end main content -->
+{% endblock %}
