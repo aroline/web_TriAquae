@@ -1,5 +1,6 @@
 {% extends "fmbase.html" %}
 {% block page-content %}
+{% load staticfiles %}
 <div id="page-content">
     <!-- page header -->
     <h1 id="page-header">Assets Detail</h1>
@@ -10,12 +11,10 @@
         <div id="invoice-bar" class="btn-toolbar">
             <div class="btn-group">
                 <!--
-                <button type="button" class="btn medium"><i class="cus-cross"></i></button>
-                <button type="button" class="btn medium"><i class="cus-pencil"></i></button>
-                -->
                 <button type="button" id="invoice-print" class="btn medium">
                     <i class="cus-printer"></i> Print Invoice 
                 </button>
+                -->
             </div>
         </div>
         <div id="invoice-id-01" class="invoice" style:"width:40%;overflow:scroll">
@@ -23,14 +22,16 @@
                 <!--
                 <img src="img/favicons/apple-touch-icon-retina.png" width="114" height="114"             alt="invoice icon">
                 -->
-                <img src="/static/img/favicons/dell.png" width="114" height="114" alt="device icon">
+                <img src="{% static "img/favicons/host.png" %}" width="114" height="114" alt="device icon">
                 <div class="invoice-company-info invoice-info pull-right">
                     <h4>{{ host.System_Hostname }}</h4><br />
+                    <!--
                     <ul>
                         <li>Purchase Time:<span>2013-01-01</span></li>
                         <li>Expired Time:<span>2015-01-01</span></li>
                         <li>Contact:<span>010-76353758</span></li>
                     </ul>
+                    -->
                 </div>
             </div>
 
@@ -40,10 +41,6 @@
                         <tr>
                             <th class="item">Item</th>
                             <th class="desc">Description</th>
-                            <!--
-                            <th>Item</th>
-                            <th>Description</th>
-                            -->
                         </tr>
                     </thead>
                     <tbody>

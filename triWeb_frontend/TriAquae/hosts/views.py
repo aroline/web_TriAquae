@@ -19,6 +19,9 @@ import json
 #start by zp
 yesterday = (datetime.datetime.now()-datetime.timedelta(days=2)).strftime("%Y-%m-%d")
 
+def index(request):
+    return render(request,'index.html')
+
 def assets(request):
     latest_host_list = Devinfo.objects.order_by('-id')
     auto_check  = Check_Devinfo.objects.filter(Change_Time__gte=yesterday, Change_Time__lte=datetime.date.today()).count()
@@ -44,6 +47,11 @@ def status(request):
 def status_detail(request,hostname):
     host = ServerStatus.objects.get(hostname=hostname)
     assets = Devinfo.objects.get(System_Hostname=hostname)
+    return render(request, 'status_detail.html', {'host':host, 'assets':assets}, context_instance=RequestContext(request))
+
+def status_detail2(request):
+    host = ServerStatus.objects.get(hostname='bjoss03')
+    assets = Devinfo.objects.get(System_Hostname='bjoss03')
     return render(request, 'status_detail.html', {'host':host, 'assets':assets}, context_instance=RequestContext(request))
 
 #end by zp

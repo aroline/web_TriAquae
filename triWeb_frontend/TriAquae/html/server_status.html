@@ -23,23 +23,7 @@
                         </header>
                         <!-- wrap div --> 
                         <div>
-                            <div class="jarviswidget-editbox"> 
-                                <div> <label>Title:</label> 
-                                    <input type="text" /> 
-                                </div> 
-                                <div> 
-                                    <label>Styles:</label> 
-                                    <span data-widget-setstyle="purple" class="purple-btn"></span> 
-                                    <span data-widget-setstyle="navyblue" class="navyblue-btn"></span> 
-                                    <span data-widget-setstyle="green" class="green-btn"></span> 
-                                    <span data-widget-setstyle="yellow" class="yellow-btn"></span> 
-                                    <span data-widget-setstyle="orange" class="orange-btn"></span> 
-                                    <span data-widget-setstyle="pink" class="pink-btn"></span> 
-                                    <span data-widget-setstyle="red" class="red-btn"></span> 
-                                    <span data-widget-setstyle="darkgrey" class="darkgrey-btn"></span> 
-                                    <span data-widget-setstyle="black" class="black-btn"></span> 
-                                </div> 
-                            </div> 
+                            {% include "editbox" %}
                             <div class="inner-spacer"> 
                                 <!-- content goes here --> 
                                 <table class="table text-left"> 
@@ -75,33 +59,14 @@
                     <!-- end widget --> 
                 </article> 
                 <!-- article -->
-                <article class="span6">
-                    <!-- new widget -->
+                <!--
+                <article class="span5">
                     <div class="jarviswidget" id="widget-id-5">
                         <header>
                             <h2>Hosts Status</h2>
                         </header>
-                        <!-- wrap div --> 
                         <div>
-                            <div class="jarviswidget-editbox"> 
-                                <div> <label>Title:</label> 
-                                    <input type="text" /> 
-                                </div> 
-                                <div> 
-                                    <label>Styles:</label> 
-                                    <span data-widget-setstyle="purple" class="purple-btn"></span> 
-                                    <span data-widget-setstyle="navyblue" class="navyblue-btn"></span> 
-                                    <span data-widget-setstyle="green" class="green-btn"></span> 
-                                    <span data-widget-setstyle="yellow" class="yellow-btn"></span> 
-                                    <span data-widget-setstyle="orange" class="orange-btn"></span> 
-                                    <span data-widget-setstyle="pink" class="pink-btn"></span> 
-                                    <span data-widget-setstyle="red" class="red-btn"></span> 
-                                    <span data-widget-setstyle="darkgrey" class="darkgrey-btn"></span> 
-                                    <span data-widget-setstyle="black" class="black-btn"></span> 
-                                </div> 
-                            </div> 
                             <div class="inner-spacer"> 
-                                <!-- content goes here --> 
                                 <table class="table text-left"> 
                                     <thead> 
                                         <tr> 
@@ -139,16 +104,13 @@
                                     </tbody> 
                                 </table> 
                             </div> 
-                            <!-- end content-->
                         </div> 
-                        <!-- end wrap div --> 
                     </div> 
-                    <!-- end widget --> 
                 </article> 
+                                        -->
                 <!-- end article --> 
             </div> 
             <!-- end row-fluid -->
-
         </section>
         <!-- end widget grid -->
     </div>      

@@ -122,10 +122,12 @@
 				<aside>	
 					
 					<!-- search box -->
+                    <!--
 					<div class="main-search">
 						<label for="main-search"><i class="icon-search"></i></label>
 	                    <input id="main-search" type="text" placeholder="Search...">
                 	</div>
+                    -->
 					<div class="divider"></div>
 					<!-- end search box -->
 										
@@ -135,7 +137,9 @@
 							<img src="/static/img/avatar/avatar_0.jpg" alt="" />
 						</a>
 						<span class="first-child">Welcome <strong>Victoria!</strong></span>
+                        <!--
 						<span><a href="javascript:void(0);">Edit Profile </a></span>
+                        -->
 					</div>
 					<div class="divider"></div>
 					<!-- end aside item: Mini profile -->
@@ -145,10 +149,13 @@
 						
 						<ul class="menu" id="accordion-menu-js">
 							<li class="current">
+                                <!--
 								<a href="javascript:void(0)"><i class="icon-off"></i>Dashboard</a>
+                                -->
+								<a href="/">Dashboard</a>
 							</li>
 							<li>
-								<a href="/server_status"><i class="icon-off"></i>Server Status</a>
+								<a href="/server_status">Server Status</a>
 							</li>
 							<li>
 							    <a href="/command_execution">Command Execution</a>
@@ -156,14 +163,11 @@
 						    <li>
 							    <a href="/file_transfer">File Transfer</a>
 						    </li>
-							<li class="">
+							<li>
 								<a href="/assets_management">Assets Management</a>
 							</li>
-							<li class="">
-								<a href="javascript:void(0)"><i class="icon-user"></i>Log</span></a>
-							</li>
-							<li class="">
-								<a href="javascript:void(0)"><i class="icon-signal"></i>Settings</a>
+							<li>
+								<a href="javascript:void(0)">Log</span></a>
 							</li>
 						</ul>
 						
@@ -328,52 +332,8 @@
     <!-- DISABLED <script type='text/javascript' src='https://www.google.com/jsapi'></script>-->
     <!-- DISABLED <script src="js/include/adv_charts/geochart.js"></script> -->
 
-    <!-- zp add for table -->
-    <!--
-    <script src="/static/js/include/assets_table.js"></script>
-    -->
-    <!-- needed 
-    -->
-    <script type="text/javascript">
-        var virCookies={"System_Hostname":1,"System_Ip":1,"Device_Type":1,"Device_Model":1,"System_kernel":1,
-            "Ethernet_Interface":0,"Memory_Slots_Number":1,"Memory_Slots_All":1,"Physical_Memory":1,"Logical_Cpu_Cores":1,
-            "Physical_Cpu_Cores":1, "Physical_Cpu_Model":1,"Physical_Cpu_MHz":1,"System_Version":1, "Hard_Disk":1, 
-            "System_Mac":1, "System_Swap":1, "Device_Sn":1, "Asset_Number":1, "Note1":1, "Note2":1, "Note3":1,"Check_Time":1};
-        $(document).ready(function(){
-            var i=0;
-            $.each(virCookies,function(name,val){
-                var inHtml="<div><input type=\"checkbox\" id=\"ch_"+name
-                        +"\" "+(val?"checked=\"checked\"":"")
-                        +"\" onclick=\"show_hide_column("
-                        +i+")\" /><label for=\"ch_"+name+"\" style=\"display:inline; padding-left:10px\">"+name+"</label></div>";
-                $("#colsDiv").append(inHtml);
-                if(!val){
-                    $("td:eq("+i+")","tr","table[id=col-filter]").hide();
-                }
-                i++;
-            });
-            /*
-            $("#button1").click(function(){
-                $("td:eq(5)",$("tr")).toggle(0);
-            });*/
-        });
-
-         function show_hide_column(index){
-            $("td:eq("+index+")","tr","table[id=col-filter]").toggle();
-         }
-
-         function show_div(){
-            /*alert($("td","tr:eq(0)","table[id=col-filter]").width());*/
-
-            $("#colsDiv").css({left:(event.clientX-2)+"px",top:(event.clientY-1)+"px",zIndex:"10",position:"fixed"}).show(0,function(){
-                $("#colsDiv").bind("mouseleave",function(){
-                    $("#colsDiv").hide();
-                });
-                //e.addEventListener("click");
-            });
-         }
-    </script>
-
+    <!-- zp add for table filter -->
+    <script src="/static/js/include/assets_filter_table.js"></script>
     
     <!-- end scripts -->
   </body>

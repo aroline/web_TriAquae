@@ -34,7 +34,8 @@
 	
 	@media screen and (min-width: 1279px) { /* was 1325 */
 		#page-content {
-			margin-right:249px;
+			/*margin-right:249px;*/
+			margin-right:10px;
 			border-right-color: #DBDBDC;
 		}
 		

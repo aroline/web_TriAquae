@@ -469,6 +469,7 @@ function setup_calendar() {
 
         editable: true,
         events: [
+        /*
         {
           title: 'All Day Event',
           start: new Date(y, m, 1)
@@ -513,6 +514,7 @@ function setup_calendar() {
           end: new Date(y, m, 29),
           url: 'http://google.com/'
         }
+        */
     ]
     });
 

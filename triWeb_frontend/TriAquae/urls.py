@@ -26,11 +26,13 @@ urlpatterns = patterns('',
     #url(r'^hosts/$',include('TriAquae.hosts.urls')),
 
     # start by zp
+    url(r'^$', index, name='index'),
     url(r'^assets_management/$',assets),
     url(r'^assets_management/(?P<id>\d+)/$', assets_detail, name='assets_detail'),
     url(r'^assets_management/diff$',assets_diff),
     url(r'^server_status/$',status),
     url(r'^server_status/(?P<hostname>\S+)/$',status_detail, name='status_detail'),
+    #url(r'^server_status/detail/$',status_detail2, name='status_detail2'),
     url(r'^command_execution$',command_execution),
     url(r'^file_transfer$',file_transfer),
     # end by zp
