@@ -154,36 +154,17 @@
 				<!-- new widget -->
 				<div class="jarviswidget" id="widget-id-5">
 				    <header>
-				        <h2>Tasks in progress</h2>                           
+				        <h2>Overview</h2>                           
 				    </header>
 				    <div>
-				    
-				        <div class="jarviswidget-editbox">
-				            <div>
-				                <label>Title:</label>
-				                <input type="text" />
-				            </div>
-				            <div>
-				                <label>Styles:</label>
-				                <span data-widget-setstyle="purple" class="purple-btn"></span>
-				                <span data-widget-setstyle="navyblue" class="navyblue-btn"></span>
-				                <span data-widget-setstyle="green" class="green-btn"></span>
-				                <span data-widget-setstyle="yellow" class="yellow-btn"></span>
-				                <span data-widget-setstyle="orange" class="orange-btn"></span>
-				                <span data-widget-setstyle="pink" class="pink-btn"></span>
-				                <span data-widget-setstyle="red" class="red-btn"></span>
-				                <span data-widget-setstyle="darkgrey" class="darkgrey-btn"></span>
-				                <span data-widget-setstyle="black" class="black-btn"></span>
-				            </div>
-				        </div>
-
+                        {% include "editbox" %}
 				        <div class="inner-spacer"> 
 				        <!-- content goes here -->
 							<div class="progress-stats">
                                 <div class="widget-content-padding">
-                                    <strong>Hot Fixes</strong><strong class="pull-right">51%</strong>
-                                    <div class="progress progress-danger value"><div class="bar" data-percentage="30" data-amount-part="784" data-amount-total="1544">784 / 1544</div></div>
-                                    
+                                    <strong>Server Up / Down</strong><strong class="pull-right">51%</strong>
+                                    <div class="progress progress-success value"><div class="bar" data-percentage="30" data-amount-part="784" data-amount-total="1544">784 / 1544</div></div>
+                                    <!--
                                     <div class="semi-block">
                                         <strong>Urgent Tasks</strong><strong class="pull-right">87%</strong>
                                         <div class="progress progress-info value"><div class="bar" data-percentage="40" data-amount-part="456" data-amount-total="631">456 / 631</div></div>
@@ -198,6 +179,7 @@
                                         <strong>Pending tasks</strong><strong class="pull-right">33%</strong>
                                         <div class="progress progress-warning value"><div class="bar" data-percentage="33" data-amount-part="33" data-amount-total="100">33 / 100</div></div>
                                     </div>
+                                    -->
                                 </div>
                             </div>
 				        <!-- end content -->
