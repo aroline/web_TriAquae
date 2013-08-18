@@ -7,7 +7,7 @@ config steps:
 
 step1:
 
-git clone git@github.com:triaquae/web_TriAquae.git
+git clone git@github.com:aroline/web_TriAquae.git
 
 put triWeb_frontend into /usr/local/src, it will looks like /usr/local/src/triWeb_frontend
 
