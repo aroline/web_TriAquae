@@ -81,6 +81,7 @@ STATICFILES_DIRS = (
     ("img", os.path.join(STATIC_ROOT, 'img')),
     ("liger", os.path.join(STATIC_ROOT, 'liger')),
     ("mulselect", os.path.join(STATIC_ROOT, 'mulSelector')),
+    '/var/www/TriAquae/rrdtool_png',
 )
 
 # List of finder classes that know how to find static files in
@@ -124,6 +125,7 @@ TEMPLATE_DIRS = (
     #os.path.join(SITE_ROOT,'hosts'),
     os.path.join(SITE_ROOT,'templates'),
     os.path.join(SITE_ROOT,'html'),
+    "/var/www/TriAquae/rrdtool_png",
 )
 
 INSTALLED_APPS = (

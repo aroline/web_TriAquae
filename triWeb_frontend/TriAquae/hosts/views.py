@@ -20,7 +20,12 @@ import json
 yesterday = (datetime.datetime.now()-datetime.timedelta(days=2)).strftime("%Y-%m-%d")
 
 def index(request):
-    return render(request,'index.html')
+    up = ServerStatus.objects.filter(host_status='UP').count()
+    down = ServerStatus.objects.filter(host_status='DOWN').count()
+    total = ServerStatus.objects.all().count()
+    percent = round(up / float(total), 4) * 100
+    context = {'up':up, 'down':down, 'total':total, 'percent':percent}
+    return render(request,'index.html', context)
 
 def assets(request):
     latest_host_list = Devinfo.objects.order_by('-id')
